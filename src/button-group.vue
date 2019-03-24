@@ -5,7 +5,16 @@
 
 </template>
 <script>
-
+    export default{
+        mounted(){      //当button-group出现在页面上的时候调用
+            for(let node of this.$el.children){
+                let name = node.nodeName.toLowerCase();
+                if( name !== 'button'){
+                    console.warn(`g-button-group的子节点应该是button，但是你写的是 ${name}`)
+                }
+            }
+        }
+    }
 </script>
 <style lang="scss">
     .g-button-group{
