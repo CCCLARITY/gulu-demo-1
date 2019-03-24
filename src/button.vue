@@ -12,7 +12,18 @@
 
 <script>
     export default {
-        props: ['icon', 'iconPosition']         //接口，需要输入一个icon
+        // props: ['icon', 'iconPosition']         //接口，需要输入一个icon
+        props: {                            //props 有两种写法，这种是对象
+            icon: {},
+            iconPosition: {
+                type: String,
+                default: 'left',
+                validator(value){
+                    return !(value !== 'left' && value !== 'right');
+                    // return value === 'left' || value === 'right';
+                }
+            }
+        }
     }
 </script>
 
