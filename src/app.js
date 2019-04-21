@@ -19,6 +19,10 @@ new Vue({
 //单元测试
 import chai from 'chai';
 const expect = chai.expect;
+
+import spies from 'chai-spies';
+chai.use(spies);
+
 // icon
 {
     const Constructor = Vue.extend(Button);
@@ -85,7 +89,22 @@ const expect = chai.expect;
     button.$destroy();
 }
 
-//click
+//click 测试的目的是为了判断函数是否执行 安装chai-spies  函数的mock
+// {
+//     const Constructor = Vue.extend(Button);
+//     const vm = new Constructor({
+//         propsData: {
+//             icon: 'settings',
+//         }
+//     });
+//     vm.$mount();
+//     vm.$on('click', function(){
+//         expect(1).to.equal(1);
+//     })
+//
+//     let button = vm.$el;
+//     button.click();
+// }
 {
     const Constructor = Vue.extend(Button);
     const vm = new Constructor({
@@ -94,10 +113,10 @@ const expect = chai.expect;
         }
     });
     vm.$mount();
-    vm.$on('click', function(){
-        expect(1).to.equal(1);
-    })
+    let spy = chai.spy(function(){});
+    vm.$on('click', spy)
 
     let button = vm.$el;
     button.click();
+    expect(spy).to.have.been.called();
 }
