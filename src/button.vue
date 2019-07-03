@@ -10,8 +10,12 @@
 </template>
 
 <script>
+    import Icon from './icon';
     export default {
         // props: ['icon', 'iconPosition']         //接口，需要输入一个icon
+        components: {
+            'g-icon': Icon,
+        },
         props: {                            //props 有两种写法，这种是对象
             icon: {},
             loading: {                      // 是否显示loading的变量
