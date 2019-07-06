@@ -32,36 +32,47 @@
         }
     </style>
     <style>
-
+        .box{
+            margin: 20px;
+        }
 
     </style>
     <title>VUE UI</title>
 </head>
 <body>
 <div id="app">
-    <g-button :loading="loading1" @click="loading1 = !loading1">
-        <!--加：表示这个属性是一个变量，后面的"可有可无，""里面是JS代码，所以不是字符串true-->
-        按钮
-    </g-button>
-    <g-button icon="settings" :loading="loading2" @click="loading2 = !loading2">
-        按钮
-    </g-button>
-    <g-button icon="settings" icon-position="right" :loading="loading3" @click="loading3 =! loading3">
-        按钮
-    </g-button>
-    <g-button-group>
-        <g-button icon="left">上一页</g-button>
-        <g-button>更多</g-button>
-        <g-button icon="right" icon-position="right">下一页</g-button>
-    </g-button-group>
-    <g-input></g-input>
-    <div id="test">
-
+    <div class="box">
+        <g-input value="张三" :disabled="true"></g-input>
+        <g-input value="李四" :readonly="true"></g-input>
+        <g-input value="王五"></g-input>
     </div>
+    <div class="box">
+        <g-input value="王" error="姓名不能少于2个字"></g-input>
+    </div>
+    <div class="box">
+        <g-button :loading="loading1" @click="loading1 = !loading1">
+            <!--加：表示这个属性是一个变量，后面的"可有可无，""里面是JS代码，所以不是字符串true-->
+            按钮
+        </g-button>
+        <g-button icon="settings" :loading="loading2" @click="loading2 = !loading2">
+            按钮
+        </g-button>
+        <g-button icon="settings" icon-position="right" :loading="loading3" @click="loading3 =! loading3">
+            按钮
+        </g-button>
+        <g-button-group>
+            <g-button icon="left">上一页</g-button>
+            <g-button>更多</g-button>
+            <g-button icon="right" icon-position="right">下一页</g-button>
+        </g-button-group>
+    </div>
+
+
+
 </div>
 
 
 <script src="./src/app.js"></script>
-<script src="//at.alicdn.com/t/font_1015541_eyr6h0f4ob5.js"></script>
+<script src="//at.alicdn.com/t/font_1015541_a1qqjhjciaq.js"></script>
 </body>
 </html>
